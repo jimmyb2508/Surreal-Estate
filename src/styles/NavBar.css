@@ -1,0 +1,25 @@
+.NavBar {
+  background-color: white;
+  box-shadow: 0 0 25px 0 black;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  text-align: center;
+}
+
+.item {
+  display: inline-block;
+  margin: 0;
+  padding-right: 10px;
+}
+
+
+
+
