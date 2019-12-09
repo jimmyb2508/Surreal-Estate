@@ -1,24 +1,32 @@
-.NavBar {
+.nav{
   background-color: white;
+  margin-top: 0;
+  margin-bottom: 0px;
+  height: 90px;
   box-shadow: 0 0 25px 0 black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.logo {
-  width: 150px;
+.nav img {
+  width: 200px;
 }
 
-.nav {
-  margin: 0;
-  padding: 0;
-  height: 30px;
-  text-align: center;
-}
-
-.item {
+.nav li {
   display: inline-block;
   margin: 0;
-  padding-right: 10px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
+
+.nav li:hover {
+  background-color: #8221b3;
+  color: white;
+}
+
 
 
 
