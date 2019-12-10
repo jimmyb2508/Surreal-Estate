@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../logo.png';
+import { Link } from "react-router-dom";
 
 import '../styles/NavBar.css';
 
@@ -9,8 +10,8 @@ class NavBar extends React.Component {
       <div>
         <ul className="nav">
         <img className='logo' src={logo} alt="Logo" />
-          <li className="item">View Properties</li>
-          <li className="item">Add a Property</li>
+          <Link className="item" to="/">View Properties</Link>
+          <Link className="item" to="add-property">Add a Property</Link>
         </ul>
       </div>
     );
