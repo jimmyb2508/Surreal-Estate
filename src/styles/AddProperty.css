@@ -7,11 +7,11 @@ form {
   margin-right: 50px;
   margin-top: 50px;
   background-color: white;
-  align-items: center;
+  align-items: flex-end;
 }
 
 input {
-  width: 600px;
+  width: 300px;
   padding: 6px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -20,7 +20,7 @@ input {
 }
 
 select {
-  width: 570px;
+  width: 150px;
   height: 25px;
 }
 

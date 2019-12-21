@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Alert from './Alert';
+import Axios from 'axios';
 import '../styles/AddProperty.css';
 
 class AddProperty extends React.Component {
@@ -9,19 +10,46 @@ class AddProperty extends React.Component {
       fields: {
         title: '',
         type: '',
-        bedrooms: '',
-        bathrooms: '',
-        price:'',
+        bedrooms: '0',
+        bathrooms: '0',
+        price:'0',
         city: '',
-        email:''
+        email:'',
+      },
+      status: {
+        alertMessage: '',
+        isSuccess: false,
+        isError: false,
       }
     }
   }
 
   handleAddProperty = (event) => {
     event.preventDefault();
-    // this.setState({})
+    this.setState({
+      status: {
+        alertMessage: '',
+        isSuccess: false,
+        isError: false,
+      },
+    });
     console.log(this.state.fields);
+    Axios.post('http://localhost:3000/api/v1/PropertyListing/',{
+    ...this.state.fields, [event.target.name]: event.target.value,
+    })
+    .then((response) => {
+      console.log(response.data);
+      this.setState({
+        alertMessage: 'Property Added',
+        isSuccess: true,
+      });
+    })
+   .catch(error => {
+     this.setState({
+       alertMessage: 'Error, property not added',
+       isError: true,
+     });
+   })
   }
 
   handleFieldChange = (event) => {
@@ -37,6 +65,7 @@ class AddProperty extends React.Component {
       <div className="propertyTitle">
         <label>
           Title:
+          <br></br>
           <input 
             name="title" 
             value={this.state.fields.title}
@@ -47,6 +76,7 @@ class AddProperty extends React.Component {
       <div className="propertyType">
         <label>
           Type:
+          <br></br>
           <select
             name="type"
             value={this.state.fields.type}
@@ -64,6 +94,7 @@ class AddProperty extends React.Component {
       <div className="propertyBedrooms">
         <label>
           Bedrooms:
+          <br></br>
           <input
             name="bedrooms"
             value={this.state.fields.bedrooms}
@@ -74,6 +105,7 @@ class AddProperty extends React.Component {
       <div className="propertyBathrooms">
         <label>
           Bathrooms:
+          <br></br>
           <input
             name="bathrooms"
             value={this.state.fields.bathrooms}
@@ -84,6 +116,7 @@ class AddProperty extends React.Component {
       <div className="propertyPrice">
         <label>
           Price:
+          <br></br>
           <input
             name="price"
             value={this.state.fields.price}
@@ -94,6 +127,7 @@ class AddProperty extends React.Component {
       <div className="propertyCity">
         <label>
           City:
+          <br></br>
           <select
             name="city"
             value={this.state.fields.city}
@@ -108,6 +142,7 @@ class AddProperty extends React.Component {
       <div className="propertyEmail">
         <label>
           email:
+          <br></br>
           <input
             name="email"
             type="email"
@@ -119,6 +154,12 @@ class AddProperty extends React.Component {
           <button type="submit">
             <label>Add</label>
           </button>
+          {this.state.status.isSuccess && (
+            <Alert message={this.state.status.alertMessage} success />
+          )}
+          {this.state.status.isError && (
+            <Alert message={this.state.status.alertMessage} success />
+          )}
     </form>
   </div>
     );
