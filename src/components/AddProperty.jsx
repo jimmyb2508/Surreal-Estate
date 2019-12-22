@@ -10,9 +10,9 @@ class AddProperty extends React.Component {
       fields: {
         title: '',
         type: '',
-        bedrooms: '0',
-        bathrooms: '0',
-        price:'0',
+        bedrooms: '',
+        bathrooms: '',
+        price:'',
         city: '',
         email:'',
       },
@@ -33,26 +33,33 @@ class AddProperty extends React.Component {
         isError: false,
       },
     });
+    console.log(this.state.status);
     console.log(this.state.fields);
-    Axios.post('http://localhost:3000/api/v1/PropertyListing/',{
-    ...this.state.fields, [event.target.name]: event.target.value,
-    })
-    .then((response) => {
-      console.log(response.data);
+    Axios
+    .post('http://localhost:3000/api/v1/PropertyListing/', 
+        {...this.state.fields, [event.target.name]: event.target.value,})
+    .then(response => {
+      console.log(response);
       this.setState({
-        alertMessage: 'Property Added',
-        isSuccess: true,
+        status: {
+          alertMessage: 'Property Added Successfully!',
+          isSuccess: true,
+        },
       });
     })
-   .catch(error => {
-     this.setState({
-       alertMessage: 'Error, property not added',
-       isError: true,
-     });
-   })
+    .catch(error => {
+      console.log(error);
+      this.setState({
+        status: {
+          alertMessage: 'Server Error. Please try again later.',
+          isError: true,
+        }
+      })
+    })
   }
 
   handleFieldChange = (event) => {
+    event.preventDefault()
     this.setState({
       fields: {...this.state.fields, [event.target.name]: event.target.value},
     });
@@ -62,6 +69,13 @@ class AddProperty extends React.Component {
     return (
   <div className="AddProperty">
     <form onSubmit={this.handleAddProperty}>
+      <div className="class1">
+        {this.state.status.isSuccess && <Alert message={this.state.status.alertMessage} success />}
+      </div>
+      <div className="class2">
+        {this.state.status.isError && <Alert message={this.state.status.alertMessage} />}
+      </div>
+      <br></br>
       <div className="propertyTitle">
         <label>
           Title:
@@ -154,12 +168,6 @@ class AddProperty extends React.Component {
           <button type="submit">
             <label>Add</label>
           </button>
-          {this.state.status.isSuccess && (
-            <Alert message={this.state.status.alertMessage} success />
-          )}
-          {this.state.status.isError && (
-            <Alert message={this.state.status.alertMessage} success />
-          )}
     </form>
   </div>
     );

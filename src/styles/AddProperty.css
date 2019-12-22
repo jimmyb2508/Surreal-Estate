@@ -24,3 +24,12 @@ select {
   height: 25px;
 }
 
+.class1 {
+  color: rgb(7, 112, 7);
+  background-color: rgb(193, 252, 188);
+}
+
+.class2 {
+  color: red; 
+  background-color: rgb(253, 215, 215);
+}

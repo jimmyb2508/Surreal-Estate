@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Alert from '../components/Alert.jsx';
+import Alert from '../../components/Alert.jsx';
 
 it('renders an error message', () => {
   const wrapper = shallow((
