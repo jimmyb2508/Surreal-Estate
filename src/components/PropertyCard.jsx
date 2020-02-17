@@ -1,33 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class PropertyCard extends React.Component {
-  render() {
+const PropertyCard = props => {
+  const {
+    title,
+    type,
+    city,
+    bedrooms,
+    bathrooms,
+    price,
+    email,
+  } = props;
+
     return (
-      <div>
-        <div className="PropertyCardTitle">
-          <span>{this.props.title}</span>
-        </div>
-        <div className="PropertyCardType">
-          <span>{this.props.type}</span>
-        </div>
-        <div className="PropertyCardBedrooms">
-          <span>{this.props.bedrooms}</span>
-        </div>
-        <div className="PropertyCardBathrooms">
-          <span>{this.props.bathrooms}</span>
-        </div>
-        <div className="PropertyCardPrice">
-          <span>{this.props.price}</span>
-        </div>
-        <div className="PropertyCardCity">
-          <span>{this.props.city}</span>
-        </div>
-        <div className="PropertyCardEmail">
-          <span>{this.props.email}</span>
-        </div>
+      <div className="propertyCard">
+        <span className="title">{title}</span>
+        <span className="type">{type}</span>
+        <span className="bedrooms">{bedrooms}</span>
+        <span className="bathrooms">{bathrooms}</span>
+        <span className="price">{price}</span>
+        <span className="city">{city}</span>
+        <span className="email">{email}</span>
       </div>
     );
-  }
 }
 
 export default PropertyCard;

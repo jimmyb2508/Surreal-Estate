@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import PropertyCard from './PropertyCard';
 
-const Properties = () => (
-  <Fragment>
-    Properties Page
-  </Fragment>
+const Properties = props => (
+  <div className="propertyCard">
+    <PropertyCard />
+  </div>
 );
 
 export default Properties;

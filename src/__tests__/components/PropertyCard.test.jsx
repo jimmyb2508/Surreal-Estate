@@ -1,6 +1,6 @@
-import PropertyCard from '../../components/PropertyCard.jsx';
 import { shallow } from 'enzyme';
 import React from 'react';
+import PropertyCard from '../../components/PropertyCard';
 
 it('renders', () => {
   shallow(<PropertyCard />);
@@ -17,7 +17,7 @@ it('renders a title', () => {
     email="james.barrington1985@gmail.com"
     />,
   )
-  const text = wrapper.find('.PropertyCardTitle').text();
+  const text = wrapper.find('.title').text();
   expect(text).toEqual('JamesHouse');
 });
 
@@ -32,7 +32,7 @@ it('renders a type', () => {
   email="james.barrington1985@gmail.com"
     />,
   )
-  const text = wrapper.find('.PropertyCardType').text();
+  const text = wrapper.find('.type').text();
   expect(text).toEqual('Terraced');
 });
 
@@ -47,7 +47,7 @@ it('renders a bedroom', () => {
   email="james.barrington1985@gmail.com"
     />,
   )
-  const text = wrapper.find('.PropertyCardBedrooms').text();
+  const text = wrapper.find('.bedrooms').text();
   expect(text).toEqual('2');
 });
 
@@ -62,7 +62,7 @@ it('renders a bathroom', () => {
     email="james.barrington1985@gmail.com"
     />,
   )
-  const text = wrapper.find('.PropertyCardBathrooms').text();
+  const text = wrapper.find('.bathrooms').text();
   expect(text).toEqual('2');
 });
 
@@ -77,7 +77,7 @@ it('renders a price', () => {
     email="james.barrington1985@gmail.com"
    />,
   )
-  const text = wrapper.find('.PropertyCardPrice').text();
+  const text = wrapper.find('.price').text();
   expect(text).toEqual('185000');
 })
 
@@ -92,7 +92,7 @@ it('renders a city', () => {
     email="james.barrington1985@gmail.com"
     />,
    )
-   const text = wrapper.find('.PropertyCardCity').text();
+   const text = wrapper.find('.city').text();
    expect(text).toEqual('Manchester')
 });
 
@@ -107,6 +107,6 @@ it('renders an email', () => {
     email="james.barrington1985@gmail.com"
     />,
   )
-  const text = wrapper.find('.PropertyCardEmail').text();
+  const text = wrapper.find('.email').text();
   expect(text).toEqual('james.barrington1985@gmail.com')
 });
