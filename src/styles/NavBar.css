@@ -11,29 +11,45 @@
 
 .nav img {
   width: 200px;
+  padding-right: 50px;
 }
 
-.item {
-  display: inline-block;
-  margin: 0;
-  padding-top: 34px;
-  padding-bottom: 34px;
-  padding-left: 100px;
-  padding-right: 100px;
+.item-one {
   text-decoration: none;
+  position: fixed;
+  margin-left: 250px;
 }
 
-.item:link {
+.item-two {
+  text-decoration: none;
+  position: fixed;
+  margin-left: 450px;
+}
+
+.item-one:link {
   color: black;
 }
 
-.item:visited {
+.item-one:visited {
   color: black;
 }
 
-.item:hover {
-  background-color: #8221b3;
-  color: white;
+.item-one:hover {
+  color:  #8221b3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.item-two:link {
+  color: black;
+}
+
+.item-two:visited {
+  color: black;
+}
+
+.item-two:hover {
+  color:  #8221b3;
   text-decoration: none;
   cursor: pointer;
 }

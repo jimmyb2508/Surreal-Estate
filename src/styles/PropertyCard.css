@@ -1,29 +1,21 @@
-.propertyCard {
+.card {
   width: fit-content;
   border-style: solid;
   border-width: 1px;
   background-color:white;
-  display: flex;
-  flex-direction: column;
   margin: 25px;
-  padding: 50px;
-  width: 250px;
-  height:300px;
-  margin-top: 50px;
-  margin-left: 50px;
-  box-shadow: 15px 10px 0px 0px black;
+  padding: 20px;
+  width: 280px;
+  /* box-shadow: 15px 10px 0px 0px black; */
 }
 
-.title {
-  font-family: 'Nunito', sans-serif;
+.logo {
+  width: 100%;
 }
 
-.type {
+.title, .type {
   font-family: 'Nunito', sans-serif;
-}
-
-.type {
-  font-family: 'Nunito', sans-serif;
+  display: block;
 }
 
 .bed {
@@ -41,6 +33,7 @@
 .mail {
   margin-right: 5px;
 }
+
 
 
 

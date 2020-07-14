@@ -1,40 +1,33 @@
 import React from 'react';
 import '../styles/PropertyCard.css';
-import { FaBed } from 'react-icons/fa';
-import { FaBath } from 'react-icons/fa';
-import { FaPoundSign } from 'react-icons/fa';
+import { FaBed, FaBath, FaPoundSign } from 'react-icons/fa';
 import { GoMail } from 'react-icons/go';
+import logo from '../styles/card_image.png';
 
 const PropertyCard = props => {
+  // eslint-disable-next-line react/prop-types
   const { title, type, city, bedrooms, bathrooms, price, email } = props;
-
-  //temp - hardcoded to allow for styling
 
   return (
     <div className="card">
-      <span className="title">18th Century Rural Home</span>
-      <br />
-      <br />
-      <span className="type">Terraced House</span>
-      <br />
-      <br />
-      <span className="city">Manchester</span>
-      <br />
-      <br />
-      <FaBed className="bed" />
-      <span className="bedrooms">2</span>
-      <br />
-      <br />
-      <FaBath className="bath" />
-      <span className="bathrooms">2</span>
-      <br />
-      <br />
-      <FaPoundSign className="pound" />
-      <span className="price">180,000</span>
-      <br />
-      <br />
+      <img className="logo" src={logo} alt="logo" />
+      <span className="title">{title}</span>
+      <span className="type">{type}</span>
+      <span className="city">{city}</span>
+      <div className="bed-wrapper">
+        <FaBed className="bed-icon" />
+        <span className="bedrooms">{bedrooms}</span>
+      </div>
+      <div className="bath-wrapper">
+        <FaBath className="bath-icon" />
+        <span className="bathrooms">{bathrooms}</span>
+      </div>
+      <div className="pound-price">
+        <FaPoundSign className="pound" />
+        <span className="price">{price}</span>
+      </div>
       <GoMail className="mail" />
-      <span className="email">jamesb@gmail.com</span>
+      <span className="email">{email}</span>
     </div>
   );
 };

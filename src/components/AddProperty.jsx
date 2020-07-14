@@ -68,7 +68,7 @@ class AddProperty extends React.Component {
   render() {
     return (
   <div className="AddProperty">
-    <form onSubmit={this.handleAddProperty}>
+    <form className="add-form" onSubmit={this.handleAddProperty}>
       <div className="class1">
         {this.state.status.isSuccess && <Alert message={this.state.status.alertMessage} success />}
       </div>
