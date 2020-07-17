@@ -7,17 +7,27 @@ import '../styles/SideBar.css';
 
 const BuildQueryString = (operation, valueObj) => {
   const { search } = useLocation();
+
   const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
+
   const newQueryParams = {
     ...currentQueryParams,
-    [operation]: JSON.stringify(valueObj)
-  }
+    [operation]: JSON.stringify({
+      ...JSON.parse(currentQueryParams[operation] || '{}'),
+      ...valueObj,
+    }),
+  };
+
   return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
-}
+};
 
 function SideBar() {
   const [query, setQuery] = useState("");
+  console.log(query);
+  console.log(setQuery);
+
   const history = useHistory();
+
   const handleSearch = event => {
     event.preventDefault();
     const newQueryString = BuildQueryString('query', { title: { $regex: query } });
@@ -32,7 +42,7 @@ function SideBar() {
             className="input"
             type="text"
             value={query}
-            onChange={e => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <button className="search-butt" type="submit">
             <FaSearch />
