@@ -8,8 +8,6 @@ import '../styles/SideBar.css';
 function SideBar() {
   const [query, setQuery] = useState("");
   const { search } = useLocation();
-  console.log(query);
-  console.log(setQuery);
 
   const history = useHistory();
 
@@ -72,7 +70,6 @@ function SideBar() {
       </Link>
     </div>
   );
-};
+}
 
 export default SideBar;
-

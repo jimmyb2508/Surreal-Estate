@@ -1,6 +1,6 @@
 import React from 'react';
-import Alert from './Alert';
 import Axios from 'axios';
+import Alert from './Alert';
 import '../styles/AddProperty.css';
 
 class AddProperty extends React.Component {
@@ -24,7 +24,7 @@ class AddProperty extends React.Component {
     }
   }
 
-  handleAddProperty = (event) => {
+  handleAddProperty = event => {
     event.preventDefault();
     this.setState({
       status: {
@@ -33,8 +33,6 @@ class AddProperty extends React.Component {
         isError: false,
       },
     });
-    console.log(this.state.status);
-    console.log(this.state.fields);
     Axios
     .post('http://localhost:3000/api/v1/PropertyListing/', 
         {...this.state.fields, [event.target.name]: event.target.value,})

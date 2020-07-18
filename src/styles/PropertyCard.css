@@ -1,12 +1,11 @@
 .card {
-  width: fit-content;
   border-style: solid;
   border-width: 1px;
   background-color:white;
   margin: 25px;
   padding: 20px;
   width: 280px;
-  /* box-shadow: 15px 10px 0px 0px black; */
+  height: 350px;
 }
 
 .logo {
@@ -16,14 +15,32 @@
 .title, .type {
   font-family: 'Nunito', sans-serif;
   display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.city {
+  
+}
+
+.bed-wrapper {
+  margin-top: 10px;
 }
 
 .bed {
   margin-right: 5px;
 }
 
+.bath-wrapper {
+  margin-top: 10px;
+}
+
 .bath {
   margin-right: 5px;
+}
+
+.pound-price {
+  margin-top: 10px;
 }
 
 .pound {
@@ -32,6 +49,7 @@
 
 .mail {
   margin-right: 5px;
+  margin-top: 10px;
 }
 
 

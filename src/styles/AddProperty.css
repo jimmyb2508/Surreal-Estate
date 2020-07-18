@@ -3,11 +3,11 @@
   padding-right: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-left: 180px;
-  margin-right: 50px;
-  margin-top: 50px;
+  margin-top: 150px;
   background-color: white;
   align-items: flex-end;
+  position: absolute;
+  border: solid 5px red; 
 }
 
 input {

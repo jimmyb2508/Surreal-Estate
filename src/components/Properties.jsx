@@ -12,11 +12,10 @@ function Properties() {
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/v1/PropertyListing/`)
-      .then((response) => console.log(response.data))
+      .then(response => console.log(response.data));
   }, [])
 
   const { search } = useLocation();
-  console.log(search)
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/v1/PropertyListing/${search}`)
@@ -27,8 +26,9 @@ function Properties() {
   return (
     <div className="Properties">
       <SideBar />
-    {properties.map(property => (
-      <div className="col">
+      {properties.map(property => (
+        // eslint-disable-next-line react/jsx-key
+        <div className="col">
           <PropertyCard className="item" key={property._id} {...property} />
         </div>
       ))}
