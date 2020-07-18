@@ -5,24 +5,9 @@ import qs from 'qs';
 
 import '../styles/SideBar.css';
 
-const BuildQueryString = (operation, valueObj) => {
-  const { search } = useLocation();
-
-  const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
-
-  const newQueryParams = {
-    ...currentQueryParams,
-    [operation]: JSON.stringify({
-      ...JSON.parse(currentQueryParams[operation] || '{}'),
-      ...valueObj,
-    }),
-  };
-
-  return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
-};
-
 function SideBar() {
   const [query, setQuery] = useState("");
+  const { search } = useLocation();
   console.log(query);
   console.log(setQuery);
 
@@ -32,7 +17,21 @@ function SideBar() {
     event.preventDefault();
     const newQueryString = BuildQueryString('query', { title: { $regex: query } });
     history.push(newQueryString);
-  }
+  };
+
+  const BuildQueryString = (operation, valueObj) => {
+    const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
+
+    const newQueryParams = {
+      ...currentQueryParams,
+      [operation]: JSON.stringify({
+        ...JSON.parse(currentQueryParams[operation] || '{}'),
+        ...valueObj,
+      }),
+    };
+
+    return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
+  };
 
   return (
     <div className="sidebar">
@@ -73,7 +72,7 @@ function SideBar() {
       </Link>
     </div>
   );
-}
+};
 
 export default SideBar;
 
