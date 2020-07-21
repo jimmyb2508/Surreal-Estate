@@ -1,6 +1,7 @@
 .saved-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   border-style: solid;
   border-width: 1px;
   background-color:white;
@@ -8,4 +9,9 @@
   padding: 20px;
   width: 90vw;
   height: 50px;
+}
+
+.delete-btn {
+  background-color: #EA0000;
+  width: 10%;
 }

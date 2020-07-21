@@ -18,6 +18,7 @@ class App extends React.Component {
       name: '',
       email: '',
       picture: '',
+      userFavourites: [],
     };
   }
 
@@ -28,6 +29,12 @@ class App extends React.Component {
       email: response.email,
       picture: response.picture.data.url,
     });
+    // eslint-disable-next-line no-shadow
+    axios.get(`http://localhost:3000/api/v1/Favourite/`)
+      .then(response =>
+        this.setState({ userFavourites: response.data.map(prop => prop.propertyListing) }),
+      )
+      .catch(response => console.log(response));
   };
 
   handleLogout = () => {

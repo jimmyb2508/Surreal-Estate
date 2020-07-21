@@ -20,6 +20,17 @@ class SavedProperties extends React.Component {
     .catch(error => console.log(error))
   }
 
+  handleDelete = _id => {
+    const { storedProperties } = this.state;
+
+    axios.delete(`http://localhost:3000/api/v1/Favourite/${_id}`)
+    .then(this.setState({
+      storedProperties: storedProperties.filter(property => property._id !== _id),
+    }),
+    )
+    .catch(error => console.log(error))
+  }
+
   render() {
     const { storedProperties } = this.state;
     console.log(storedProperties)
@@ -27,7 +38,7 @@ class SavedProperties extends React.Component {
       <div className="saved-properties">
       {storedProperties.map(property => console.log(property))}
       {storedProperties.map(property => (
-        <SavedPropertyCard key={property._id} {...property} />
+        <SavedPropertyCard key={property._id} {...property} deleteProperty={this.handleDelete}/>
       ))}
       </div>
     );
