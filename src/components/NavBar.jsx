@@ -29,6 +29,9 @@ const NavBar = ({ onLogin, name, onLogout, userID, picture }) => {
         <Link className="nav-item" to="/">
           View Properties
         </Link>
+        <Link className="nav-item" to="saved-properties">
+          Saved Properties
+        </Link>
         <Link className="nav-item" to="add-property">
           Add a Property
         </Link>

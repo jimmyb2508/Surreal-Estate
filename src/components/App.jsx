@@ -1,8 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
+
 import NavBar from './NavBar';
 import Properties from './Properties';
 import AddProperty from './AddProperty';
+import SavedProperties from './SavedProperties';
 
 import '../styles/app.css';
 
@@ -34,6 +37,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { userID } = this.state;
     return (
       <>
         <NavBar
@@ -45,8 +49,12 @@ class App extends React.Component {
           picture={this.state.picture}
          />
         <Switch>
-          <Route exact path="/" component={Properties} />
+          <Route exact path="/" render={props => <Properties {...props} userID={userID} />} />
           <Route exact path="/add-property" component={AddProperty} />
+          <div className="wrapper">
+          {userID && <Route exact path="/saved-properties" component={SavedProperties} /> }
+          </div>
+
         </Switch>
       </>
     );

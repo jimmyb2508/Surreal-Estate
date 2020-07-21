@@ -4,3 +4,8 @@ body {
   background: #f2f1f2;
   font-family: 'Nunito', sans-serif;
 }
+
+.wrapper {
+  position: absolute;
+  margin-top: 91px;
+}

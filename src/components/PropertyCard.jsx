@@ -1,12 +1,27 @@
 import React from 'react';
 import '../styles/PropertyCard.css';
-import { FaBed, FaBath, FaPoundSign } from 'react-icons/fa';
+import { FaBed, FaBath, FaPoundSign, FaRegStar } from 'react-icons/fa';
 import { GoMail } from 'react-icons/go';
 import logo from '../styles/card_image.png';
 
 const PropertyCard = props => {
-  // eslint-disable-next-line react/prop-types
-  const { title, type, city, bedrooms, bathrooms, price, email } = props;
+  const {
+    _id,
+    title,
+    type,
+    city,
+    bedrooms,
+    bathrooms,
+    price,
+    email,
+    onSaveProperty,
+    userID,
+  } = props;
+
+  let saveButton;
+  if (userID) {
+    saveButton = (<button className="save-butt" onClick={() => onSaveProperty(_id)}>Save <FaRegStar className="star" /></button>)
+  } 
 
   return (
     <div className="card">
@@ -26,8 +41,13 @@ const PropertyCard = props => {
         <FaPoundSign className="pound" />
         <span className="price">{price}</span>
       </div>
-      <GoMail className="mail" />
-      <span className="email">{email}</span>
+      <div className="mail-box">
+        <GoMail className="mail" />
+        <span className="email">{email}</span>
+      </div>
+      <div>
+        <span className="save">{saveButton}</span>
+      </div>
     </div>
   );
 };
