@@ -1,6 +1,8 @@
-# Surreal Estate 🏠🏡🏘🏚🏭🏢🏬🏣🏤🏥🏦🏨🏪🏫🏩💒🏛⛪️🕌🕍🕋⛩
+# Surreal Estate 🏠🏡🏘
 
 A Right Move / Zoopla application that was completed as part of a project for the Manchester Codes' Software Engineering Fast track course.
+
+You can view the finished application here: https://surreal-estate.vercel.app/
 
 ## Getting Started
 
