@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import qs from 'qs';
+import { slide as Menu } from "react-burger-menu";
 
 import '../styles/SideBar.css';
 
@@ -32,8 +33,19 @@ function SideBar() {
   };
 
   return (
-    <div className="sidebar">
-      <div className="form-wrapper">
+    <Menu right>
+    <div className="nav-bar-titles">
+      <Link className="nav-item-title" to="/">
+        View Properties
+      </Link>
+      <Link className="nav-item-title" to="saved-properties">
+        Saved Properties
+      </Link>
+      <Link className="nav-item-title" to="btn-box">
+        Add a Property
+      </Link>
+    </div>
+    <div className="form-wrapper">
         <form onSubmit={handleSearch}>
           <input
             className="input"
@@ -68,7 +80,7 @@ function SideBar() {
       <Link className="links" to={BuildQueryString('sort', { price: -1 })}>
         Descending
       </Link>
-    </div>
+    </Menu>
   );
 }
 

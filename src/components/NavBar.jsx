@@ -22,10 +22,13 @@ const NavBar = ({ onLogin, name, onLogout, userID, picture }) => {
       </button>
     )
   }
+
+  
+
   return (
     <div className="navbar">
-      <img className="logo" src={logo} alt="Logo" />
-      <ul className="nav">
+      <div className="nav">
+        <img className="logo" src={logo} alt="Logo" />
         <Link className="nav-item" to="/">
           View Properties
         </Link>
@@ -35,8 +38,8 @@ const NavBar = ({ onLogin, name, onLogout, userID, picture }) => {
         <Link className="nav-item" to="add-property">
           Add a Property
         </Link>
-        <span>{loginButton}</span>
-      </ul>
+        <span className="btn-box">{loginButton}</span>
+      </div>
     </div>
   );
 };

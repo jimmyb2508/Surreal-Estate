@@ -29,7 +29,6 @@ class App extends React.Component {
       email: response.email,
       picture: response.picture.data.url,
     });
-    // eslint-disable-next-line no-shadow
     axios.get(`http://localhost:3000/api/v1/Favourite/`)
       .then(response =>
         this.setState({ userFavourites: response.data.map(prop => prop.propertyListing) }),
@@ -59,7 +58,7 @@ class App extends React.Component {
           <Route exact path="/" render={props => <Properties {...props} userID={userID} />} />
           <Route exact path="/add-property" component={AddProperty} />
           <div className="wrapper">
-          {userID && <Route exact path="/saved-properties" component={SavedProperties} /> }
+            {userID && <Route exact path="/saved-properties" component={SavedProperties} />}
           </div>
 
         </Switch>

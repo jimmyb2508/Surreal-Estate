@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Alert from './Alert';
 import '../styles/AddProperty.css';
+import Sidebar from './SideBar';
 
 class AddProperty extends React.Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class AddProperty extends React.Component {
   render() {
     return (
   <div className="AddProperty">
+    <Sidebar />
     <form className="add-form" onSubmit={this.handleAddProperty}>
       <div className="class1">
         {this.state.status.isSuccess && <Alert message={this.state.status.alertMessage} success />}
