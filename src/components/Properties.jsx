@@ -13,7 +13,7 @@ function Properties({ userID }) {
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/v1/PropertyListing/${search}`)
-      .then(({ data }) => console.log(data))
+      // .then(({ data }) => console.log(data))
       .then(({ data }) => setProperties(data))
       .catch(err => console.error(err));
   }, [search]);

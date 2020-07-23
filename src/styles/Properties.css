@@ -1,6 +1,7 @@
 .Properties {
   padding: 0rem;
   position: absolute;
+  margin-left: 250px;
   margin-top: 91px;
   z-index: -1;
   display: flex;

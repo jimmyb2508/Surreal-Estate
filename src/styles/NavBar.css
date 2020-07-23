@@ -1,42 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
 .navbar {
   background-color: white;
   margin-top: 0;
   margin-bottom: 0px;
   height: 90px;
-  width: 100%;
+  width: 100vw;
   box-shadow: 0 0 25px 0 black;
   display: flex;
   flex-direction: row;
-  flex-shrink: 2;
   align-items: center;
   position: fixed;
-  z-index: -1;
 }
 
 .navbar img {
   width: 250px;
 }
 
-.nav {
-  width: 100vw;
-  display: flex;
-  flex-shrink: 2;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.nav-toggle {
-  display: none
-}
-
 .nav-item {
-  display: flex;
-  position: center;
-  align-items: center;
-  flex-shrink: 2;
+  display: inline-block;
   margin: 0;
+  padding-right: 70px;
   font-size: 20px;
   font-family: Nunito, Arial, Helvetica, sans-serif;
   text-decoration: none;
@@ -56,22 +40,14 @@
   text-decoration: none;
 }
 
-.btn-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .fb-login-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 2;
+  border: solid 5px red;
 }
 
 .fb-logout-btn {
   width: 175px;
   height: 70px;
+  position: absolute;
   right: 0;
   top: 0;
   margin-top: 10px;
@@ -82,32 +58,3 @@
   border-radius: 50%;
   float: right;
 }
-
-@media only screen and (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-  }
-
-  .nav-toggle:hover {
-    color: #8221b3;
-  }
-
-  .nav-item {
-    margin-top: 91px;
-    display: none;
-  }
-
-  .btn-box {
-    justify-content: left;
-    display: none;
-  }
-
-}
-
-
-
-
-
-
-
-
